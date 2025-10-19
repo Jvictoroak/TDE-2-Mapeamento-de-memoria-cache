@@ -5,14 +5,14 @@ sequencia_3 = [4,6,7,8,1,6,10,15,16,4,2,1,4,6,12,15,16,11]
 quadros = 8
 
 def fifo(sequencia, quadros):
-    ativo = []
+    memoria = []
     for i in range(len(sequencia)):
-        if sequencia[i] in ativo:
+        if sequencia[i] in memoria:
             continue
-        if(len(ativo) >= quadros):
-            ativo.pop(0)
-        ativo.append(sequencia[i])
-    return ativo
+        if(len(memoria) >= quadros):
+            memoria.pop(0)
+        memoria.append(sequencia[i])
+    return memoria
 
 print(fifo(sequencia_1, quadros))
 print(fifo(sequencia_2, quadros))
