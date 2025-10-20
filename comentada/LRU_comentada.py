@@ -5,16 +5,16 @@ sequencia_3 = [4,6,7,8,1,6,10,15,16,4,2,1,4,6,12,15,16,11]  # terceira sequênci
 quadros = 8  # número de quadros disponíveis na cache
 
 def lru(sequencia, quadros):
-    ativo = []  # lista que representa os quadros atuais
+    memoria = []  # lista que representa os quadros atuais
     for i in range(len(sequencia)):  # percorre cada referência na sequência
-        if sequencia[i] in ativo:  # se a página já está em cache
-            ativo.remove(sequencia[i])  # remove a página da posição antiga
-            ativo.append(sequencia[i])  # coloca a página no final
+        if sequencia[i] in memoria:  # se a página já está em cache
+            memoria.remove(sequencia[i])  # remove a página da posição antiga
+            memoria.append(sequencia[i])  # coloca a página no final
             continue  # passa para a próxima referência
-        if(len(ativo) >= quadros):  # se todos os quadros estão ocupados
-            ativo.pop(0)  # remove o menos recentemente usado
-        ativo.append(sequencia[i])  # adiciona a nova página
-    return ativo  # retorna o estado final dos quadros
+        if(len(memoria) >= quadros):  # se todos os quadros estão ocupados
+            memoria.pop(0)  # remove o menos recentemente usado
+        memoria.append(sequencia[i])  # adiciona a nova página
+    return memoria  # retorna o estado final dos quadros
 
 print(lru(sequencia_1, quadros))  # imprime o resultado para a sequência 1
 print(lru(sequencia_2, quadros))  # imprime o resultado para a sequência 2

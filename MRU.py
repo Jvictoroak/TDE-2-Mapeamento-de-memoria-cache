@@ -5,16 +5,16 @@ sequencia_3 = [4,6,7,8,1,6,10,15,16,4,2,1,4,6,12,15,16,11]
 quadros = 8
 
 def mru(sequencia, quadros):
-    ativo = []
+    memoria = []
     for i in range(len(sequencia)):
-        if sequencia[i] in ativo:
-            ativo.remove(sequencia[i])
-            ativo.append(sequencia[i])
+        if sequencia[i] in memoria:
+            memoria.remove(sequencia[i])
+            memoria.append(sequencia[i])
             continue
-        if(len(ativo) >= quadros):
-            ativo.pop(-1)   
-        ativo.append(sequencia[i])
-    return ativo
+        if(len(memoria) >= quadros):
+            memoria.pop(-1)   
+        memoria.append(sequencia[i])
+    return memoria
 
 print(mru(sequencia_1, quadros))
 print(mru(sequencia_2, quadros))
