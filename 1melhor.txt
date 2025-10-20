@@ -1,0 +1,21 @@
+LRU
+    Remove a menos recentemente usada
+    Excelente em padrões com localidade
+    Uso geral, SOs, caches
+    Complexidade maior
+
+FIFO
+	Remove a mais antiga
+    Simples de implementar
+    Sistemas pequenos/simples
+    Pode remover páginas úteis
+
+MRU
+	Remove a mais recentemente usada
+    Boa em acessos únicos
+    Streaming, leitura sequencial
+    Ruim em padrões com reuso
+
+Em geral, LRU é a melhor política prática, pois se adapta bem à maioria dos padrões de acesso de memória reais.
+Mas se o sistema for simples, FIFO.
+Se o padrão for leitura única e sequencial, MRU.
